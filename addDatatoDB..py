@@ -9,7 +9,7 @@ cursor = conn.cursor()
 # Create a table to store the questions and answers
 
 cursor.execute('''
-CREATE TABLE IF NOT EXISTS DS4210 (
+CREATE TABLE IF NOT EXISTS DS4220 (
     id INTEGER PRIMARY KEY,
     question TEXT NOT NULL,
     option_a TEXT NOT NULL,
@@ -59,7 +59,7 @@ ds4210questions = [
     ("Which of the following allows you to filter data in a table?", "Data Sorting", "Conditional Formatting", "Filters", "Data Validation", "C"),
     ("What does the term 'data validation' mean in Excel?", "Ensuring data is accurate", "Formatting data", "Creating charts", "Sorting data", "A")
 ]
-questions = [
+ds4210questions = [
     ("Which chart type is best for showing the relationship between two numerical variables in Tableau?", 
      "Bar Chart", "Scatter Plot", "Pie Chart", "Line Chart", "B"),
     
@@ -94,10 +94,52 @@ questions = [
      "Trend Analysis", "Forecasting", "Pages Shelf", "Parameter", "C")
 ]
 
+questions = [
+    ("Which function in R is used to calculate the mean of a numeric vector?", 
+     "sum()", "mean()", "avg()", "average()", "B"),
+    
+    ("What is the purpose of the 'lm()' function in R?", 
+     "To calculate the mean", "To perform a t-test", "To fit a linear model", "To calculate the median", "C"),
+    
+    ("Which R function would you use to create a histogram?", 
+     "histogram()", "barplot()", "hist()", "plot_hist()", "C"),
+    
+    ("What function in R provides the structure of an object, such as the data type and length?", 
+     "summary()", "structure()", "str()", "typeof()", "C"),
+    
+    ("In R, what does the 'head()' function do?", 
+     "Calculates the mean", "Displays the first few rows of a data frame", "Shows summary statistics", "Deletes the first row", "B"),
+    
+    ("What is the output of the R code 'seq(1, 10, by = 2)'?", 
+     "A sequence of numbers from 1 to 10 with step size of 2", 
+     "A sequence from 1 to 5", 
+     "A random sequence", 
+     "A sequence of 2s from 1 to 10", "A"),
+    
+    ("Which function in R would you use to perform a t-test?", 
+     "t.test()", "ttest()", "t_test()", "tt()", "A"),
+    
+    ("Which command in R would you use to read a CSV file into a data frame?", 
+     "import_csv()", "read.csv()", "csv_read()", "load_csv()", "B"),
+
+    ("What is the purpose of the 'mutate()' function in the dplyr package?", 
+     "To modify a data frame by adding or transforming variables", 
+     "To delete rows", 
+     "To summarize data", 
+     "To merge data frames", "A"),
+
+    ("What does the function 'install.packages()' do in R?", 
+     "Loads a package into the session", 
+     "Installs a package from CRAN", 
+     "Updates a package", 
+     "Lists all available packages", "B"),
+    
+]
+
 
 # Insert questions into the database
 cursor.executemany('''
-INSERT INTO DS4210 (question, option_a, option_b, option_c, option_d, answer)
+INSERT INTO DS4220 (question, option_a, option_b, option_c, option_d, answer)
 VALUES (?, ?, ?, ?, ?, ?)
 ''', questions)
 
