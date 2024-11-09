@@ -9,7 +9,7 @@ cursor = conn.cursor()
 # Create a table to store the questions and answers
 
 cursor.execute('''
-CREATE TABLE IF NOT EXISTS DS3860 (
+CREATE TABLE IF NOT EXISTS DS4210 (
     id INTEGER PRIMARY KEY,
     question TEXT NOT NULL,
     option_a TEXT NOT NULL,
@@ -47,7 +47,7 @@ ds3850questions = [
     ("What does the range() function do?", "Creates a list of numbers", "Creates a tuple of numbers", "Generates a sequence of numbers", "None of the above", "C"),
     ("Which operator is used to check if two values are equal?", "==", "=", "equals", "===", "A")
 ]
-questions = [
+ds4210questions = [
     ("What function is used to calculate the average of a range of cells in Excel?", "SUM()", "AVG()", "AVERAGE()", "MEAN()", "C"),
     ("Which Excel feature allows you to visually represent data trends?", "Conditional Formatting", "Data Validation", "Charts", "Pivot Tables", "C"),
     ("What does the VLOOKUP function do?", "Looks up values in the same row", "Looks up values in the same column", "Looks up values in a table vertically", "Looks up values in a table horizontally", "C"),
@@ -59,10 +59,45 @@ questions = [
     ("Which of the following allows you to filter data in a table?", "Data Sorting", "Conditional Formatting", "Filters", "Data Validation", "C"),
     ("What does the term 'data validation' mean in Excel?", "Ensuring data is accurate", "Formatting data", "Creating charts", "Sorting data", "A")
 ]
+questions = [
+    ("Which chart type is best for showing the relationship between two numerical variables in Tableau?", 
+     "Bar Chart", "Scatter Plot", "Pie Chart", "Line Chart", "B"),
+    
+    ("What is the purpose of a 'Dashboard' in Tableau?", 
+     "To create calculated fields", "To visualize a single chart", "To combine multiple sheets and views", "To import data sources", "C"),
+    
+    ("Which of the following is not an aggregate function in Tableau?", 
+     "SUM", "COUNT", "GROUP", "AVG", "C"),
+    
+    ("What feature in Tableau enables the user to quickly swap between different views on the dashboard?", 
+     "Filter", "Parameter", "Calculated Field", "Set", "B"),
+    
+    ("In Tableau, which feature allows you to group multiple values into a single category?", 
+     "Hierarchy", "Group", "Filter", "Set", "B"),
+    
+    ("Which chart type is best for showing the percentage distribution of a categorical variable?", 
+     "Bar Chart", "Pie Chart", "Scatter Plot", "Heat Map", "B"),
+    
+    ("In Tableau, what is the 'Pages' shelf used for?", 
+     "Creating calculated fields", "Animating data changes over time", "Applying filters", "Grouping data", "B"),
+    
+    ("What is a 'Story' in Tableau?", 
+     "A collection of dashboards and sheets that tells a data narrative", 
+     "A single worksheet", 
+     "An extension to import new data sources", 
+     "A data extraction method", "A"),
+    
+    ("Which Tableau file type is a standalone file that contains data and all dependencies for sharing?", 
+     ".tde", ".twb", ".twbx", ".tbm", "C"),
+    
+    ("Which Tableau function allows you to show data changes over a continuous range, such as time?", 
+     "Trend Analysis", "Forecasting", "Pages Shelf", "Parameter", "C")
+]
+
 
 # Insert questions into the database
 cursor.executemany('''
-INSERT INTO DS3860 (question, option_a, option_b, option_c, option_d, answer)
+INSERT INTO DS4210 (question, option_a, option_b, option_c, option_d, answer)
 VALUES (?, ?, ?, ?, ?, ?)
 ''', questions)
 
